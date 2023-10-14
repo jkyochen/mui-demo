@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import QuiltedImageList from "../components/QuiltedImageList";
+import CustomizedAccordions from "../components/CustomizedAccordions";
 
 export default function Tour() {
     return <Container sx={{
@@ -21,9 +22,10 @@ export default function Tour() {
             </Typography>
         </Box>
         <Box>
-            <Typography variant="h6" component="h4" marginTop={3}>
+            <Typography variant="h6" component="h4" marginTop={3} marginBottom={3}>
                 Frequently Asked Questions
             </Typography>
+            <CustomizedAccordions />
         </Box>
     </Container >
 }
