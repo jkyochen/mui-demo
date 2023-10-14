@@ -1,9 +1,23 @@
-import { Paper, Box, Container, Typography, BottomNavigation } from "@mui/material";
+import { Paper, Box, Container, Typography, BottomNavigation, Skeleton } from "@mui/material";
 import QuiltedImageList from "../components/QuiltedImageList";
 import CustomizedAccordions from "../components/CustomizedAccordions";
 import BasicModal from "../components/BasicModal";
+import { useEffect, useState } from "react";
+
+const IMAGE_URL = "https://picsum.photos/id/237/500/300";
 
 export default function Tour() {
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const loadImage = new Image();
+        loadImage.src = IMAGE_URL;
+        loadImage.onload = () => {
+            setIsLoading(false);
+        };
+    }, []);
+
     return <Container sx={{
         width: 900,
     }}>
@@ -11,7 +25,12 @@ export default function Tour() {
             All Around the World
         </Typography>
         <Box marginTop={3} sx={{ display: "flex" }}>
-            <img src="https://picsum.photos/id/237/600/300" alt="" />
+            <Box style={{ display: isLoading ? 'none' : 'block' }}>
+                <img src={IMAGE_URL} alt="" />
+            </Box>
+            {isLoading && (
+                <Skeleton variant="rect" width={500} height={300} />
+            )}
             <QuiltedImageList />
         </Box>
         <Box>
