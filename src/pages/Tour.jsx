@@ -1,6 +1,7 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Paper, Box, Container, Typography, BottomNavigation } from "@mui/material";
 import QuiltedImageList from "../components/QuiltedImageList";
 import CustomizedAccordions from "../components/CustomizedAccordions";
+import BasicModal from "../components/BasicModal";
 
 export default function Tour() {
     return <Container sx={{
@@ -21,11 +22,18 @@ export default function Tour() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita esse non neque ratione quas commodi unde qui perspiciatis blanditiis ipsa harum quis adipisci, quam enim fugit itaque magnam, architecto molestias maxime perferendis, vitae sit iusto nesciunt cumque? Dicta debitis deserunt ut sunt voluptatem! Inventore nemo porro quasi magnam quis reprehenderit vitae incidunt tempore velit aut mollitia in et tempora sint nulla veniam harum accusantium asperiores non quaerat sapiente hic cupiditate, illo soluta. Nihil autem magni inventore deleniti recusandae aliquid voluptatibus odit ipsum, ratione fuga adipisci. Voluptates officiis earum commodi, nulla eligendi maxime delectus ut fugiat possimus obcaecati omnis blanditiis sint!
             </Typography>
         </Box>
-        <Box>
+        <Box sx={{
+            marginBottom: 10,
+        }}>
             <Typography variant="h6" component="h4" marginTop={3} marginBottom={3}>
                 Frequently Asked Questions
             </Typography>
             <CustomizedAccordions />
         </Box>
+        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+            <BottomNavigation showLabels>
+                <BasicModal />
+            </BottomNavigation>
+        </Paper>
     </Container >
 }
